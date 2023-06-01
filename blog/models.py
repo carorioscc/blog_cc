@@ -13,7 +13,7 @@ class Post(models.Model):
 	#declaraciones de las propiedades.
 	# models.CharField, así es como defines un texto con un número limitado de caracteres.
 	# models.TextField, este es para texto largo sin límite. Suena perfecto para el contenido de la entrada del blog, ¿no?
-	# models.DateTimeField, este es fecha y hora.
+	# models.DateTimeField, este es fecha y hora.pur
 	# modelos.ForeignKey, este es una relación (link) con otro modelo.
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -22,7 +22,7 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-    #def significa funcion publish nombrre de metodo o funcion 
+    #def significa funcion publish nombre de metodo o funcion 
     def publish(self):
         self.published_date = timezone.now()
         self.save()
